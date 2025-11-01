@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends && \
     echo "alias ll='ls -l --color=auto'" > /home/node/.bash_aliases && chown node:node /home/node/.bash_aliases
 
 USER node
-COPY seed /srv/
-WORKDIR /srv/www
-ENTRYPOINT ["/srv/entrypoint.sh"]
+COPY seed /
+WORKDIR /app
+ENTRYPOINT ["/entrypoint.sh"]

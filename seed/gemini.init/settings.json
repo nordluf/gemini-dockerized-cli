@@ -15,5 +15,6 @@
   },
   "telemetry": {
     "enabled": false
-  }
+  },
+  "usageStatisticsEnabled": false
 }
