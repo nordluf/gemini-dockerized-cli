@@ -2,19 +2,20 @@
 set -euo pipefail
 
 if [[ ! -e "/home/node/.gemini/" ]]; then
-  if [[ ! -e "/app/.gemini.store/" ]]; then
-    if [[ -d "/srv/gemini.preseed/" ]]; then
-      cp -r /srv/gemini.preseed/ /app/.gemini.store
+  if [[ ! -e "/app/llm/.gemini.store/" ]]; then
+        mkdir -p /app/llm/
+    if [[ -d "/gemini.preseed/" ]]; then
+      cp -r /gemini.preseed/ /app/llm/.gemini.store
     else
-      cp -a /srv/gemini.init/ /app/.gemini.store
+      cp -a /gemini.init/ /app/llm/.gemini.store
     fi
 
-    if [[ ! -f "/app/.gitignore" ]] || ! grep -qxF '.gemini.store' "/app/.gitignore"; then
-      echo -e "\n.gemini.store" >> /app/.gitignore
+    if [[ ! -f "/app/.gitignore" ]] || ! grep -qxF './llm/.gemini.store' "/app/.gitignore"; then
+      echo -e "\n./llm/.gemini.store" >> /app/.gitignore
     fi
   fi
 
-  ln -s /app/.gemini.store/ /home/node/.gemini
+  ln -s /app/llm/.gemini.store/ /home/node/.gemini
 fi
 
 exec /usr/local/bin/gemini $@

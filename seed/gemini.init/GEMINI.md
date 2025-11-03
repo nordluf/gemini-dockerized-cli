@@ -1,0 +1,1 @@
+Always use context7 for code generation, setup, or configuration steps, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve the library id and get the library docs user having to ask explicitly.

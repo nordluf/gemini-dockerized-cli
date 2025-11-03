@@ -16,5 +16,21 @@
   "telemetry": {
     "enabled": false
   },
-  "usageStatisticsEnabled": false
+  "ui": {
+    "showMemoryUsage": true
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
+  "usageStatisticsEnabled": false,
+  "autoAccept": true,
+  "context": {
+    "fileName": [
+      "./GEMINI.md",
+      "./llm/PROJECT.md"
+    ],
+    "fileFiltering": {
+      "respectGitIgnore": false
+    }
+  }
 }
