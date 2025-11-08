@@ -3,9 +3,9 @@ set -euo pipefail
 
 if [[ ! -e "/home/node/.gemini/" ]]; then
   if [[ ! -e "/app/llm/.gemini.store/" ]]; then
-        mkdir -p /app/llm/
-    if [[ -d "/gemini.preseed/" ]]; then
-      cp -r /gemini.preseed/ /app/llm/.gemini.store
+    mkdir -p /app/llm/
+    if [[ -d "/preseed/" ]]; then
+      cp -r /preseed/ /app/llm/.gemini.store
     else
       cp -a /gemini.init/ /app/llm/.gemini.store
     fi
