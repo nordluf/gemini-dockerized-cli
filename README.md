@@ -10,6 +10,12 @@ To start using GDCLI, navigate to your project directory and run the following c
 docker run --rm -it -v ./:/app/ hlpr/gdcli
 ```
 
+Or add alias and use it:
+
+```bash
+alias gdcli='docker run --rm -it -v ./:/app/ hlpr/gdcli'
+```
+
 **Initialization:** If the project directory lacks an existing `./llm/.gemini.store` directory, GDCLI will automatically **initialize** it by copying default settings and prompts. It then symlinks this directory as the standard `~/.gemini/` folder inside the container, preparing the repository for Gemini usage.
 
 ## Key Features

@@ -18,4 +18,6 @@ if [[ ! -e "/home/node/.gemini/" ]]; then
   ln -s /app/llm/.gemini.store/ /home/node/.gemini
 fi
 
+reset # It is necessary to reset terminal to avoid display issues after previous runs
+
 exec /usr/local/bin/gemini $@

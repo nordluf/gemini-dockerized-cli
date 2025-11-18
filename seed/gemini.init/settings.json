@@ -1,4 +1,18 @@
 {
+  "tools": {
+    "autoAccept": true,
+    "allowed": [
+      "LSTool",
+      "ShellTool(ls)",
+      "ReadFileTool",
+      "WriteFileTool",
+      "GrepTool",
+      "GlobTool",
+      "WebFetchTool",
+      "WebSearchTool",
+      "MemoryTool"
+    ]
+  },
   "mcpServers": {
     "context7": {
       "httpUrl": "https://mcp.context7.com/mcp",
@@ -8,22 +22,24 @@
       }
     }
   },
+  "telemetry": {
+    "enabled": false
+  },
+  "privacy": {
+    "usageStatisticsEnabled": false
+  },
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
     }
   },
-  "telemetry": {
-    "enabled": false
-  },
   "ui": {
-    "showMemoryUsage": true
+    "showMemoryUsage": true,
+    "footer": {
+      "hideCWD": true,
+      "hideSandboxStatus": true
+    }
   },
-  "privacy": {
-    "usageStatisticsEnabled": false
-  },
-  "usageStatisticsEnabled": false,
-  "autoAccept": true,
   "context": {
     "fileName": [
       "./GEMINI.md",
@@ -32,5 +48,8 @@
     "fileFiltering": {
       "respectGitIgnore": false
     }
+  },
+  "general": {
+    "previewFeatures": true
   }
 }
