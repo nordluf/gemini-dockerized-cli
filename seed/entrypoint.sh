@@ -18,6 +18,13 @@ if [[ ! -e "/home/node/.gemini/" ]]; then
   ln -s /app/llm/.gemini.store/ /home/node/.gemini
 fi
 
+if [[ "${CONTEXT7_API_KEY:-}" ]]; then
+  jq --arg key "$CONTEXT7_API_KEY" \
+    '.mcpServers.context7.headers.CONTEXT7_API_KEY = $key' \
+    llm/.gemini.store/settings.json > /tmp/settings.json
+  mv -f /tmp/settings.json llm/.gemini.store/settings.json
+fi
+
 reset # It is necessary to reset terminal to avoid display issues after previous runs
 
 exec /usr/local/bin/gemini $@

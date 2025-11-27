@@ -4,6 +4,9 @@
     "allowed": [
       "LSTool",
       "ShellTool(ls)",
+      "ShellTool(grep)",
+      "ShellTool(cat)",
+      "ShellTool(find)",
       "ReadFileTool",
       "WriteFileTool",
       "GrepTool",
@@ -15,6 +18,7 @@
   },
   "mcpServers": {
     "context7": {
+      "trust": true,
       "httpUrl": "https://mcp.context7.com/mcp",
       "headers": {
         "CONTEXT7_API_KEY": "YOUR_API_KEY",

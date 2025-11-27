@@ -24,7 +24,7 @@ alias gdcli='docker run --rm -it -v ./:/app/ hlpr/gdcli'
 * **Project Specifications:** Utilizes the **`llm/PROJECT.md`** file to hold project-specific specifications and context for the model.
 * **Custom Preseed Option:** Easily share authentication or configuration information from another project using a custom preseed directory.
 
-### Custom Preseed Usage
+### Custom settings
 
 To mount and use a custom preseed directory, include the `-v` flag to map your custom path to the container's `/preseed/` directory:
 
@@ -33,3 +33,6 @@ docker run --rm -it -v /path/to/your/preseed/directory/:/preseed/ -v ./:/app/ hl
 ```
 
 *(Note: Replace `/path/to/your/preseed/directory/` with the actual path on your host machine.)*
+
+
+To provide Context7 API key use `-e CONTEXT7_API_KEY` (or manually insert it into ./llm/.gemini.store/settings.json).
