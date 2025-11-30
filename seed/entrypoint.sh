@@ -13,6 +13,17 @@ if [[ ! -e "/home/node/.gemini/" ]]; then
     if [[ ! -f "/app/.gitignore" ]] || ! grep -qxF './llm/.gemini.store' "/app/.gitignore"; then
       echo -e "\n./llm/.gemini.store" >> /app/.gitignore
     fi
+
+    cp -a /home/node/specify.init/.specify/ /app/llm/.specify/
+    for vFILE in /app/llm/.specify/templates/*.md; do
+      sed -i 's/\.specify\//llm\/\.specify\//g' "$vFILE"
+      sed -i 's/\/specs\//llm\/\/specs\//g' "$vFILE"
+    done
+
+    cp -a /home/node/specify.init/.gemini/commands/ /app/llm/.gemini.store/commands/
+    for vFILE in /app/llm/.gemini.store/commands/*.toml; do
+      sed -i 's/\.specify\//llm\/\.specify\//g' "$vFILE"
+    done
   fi
 
   ln -s /app/llm/.gemini.store/ /home/node/.gemini
