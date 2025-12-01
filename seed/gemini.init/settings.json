@@ -4,9 +4,23 @@
     "allowed": [
       "LSTool",
       "ShellTool(ls)",
+      "ShellTool(mv)",
+      "ShellTool(sed)",
       "ShellTool(grep)",
+      "ShellTool(git)",
       "ShellTool(cat)",
       "ShellTool(find)",
+      "ShellTool(mkdir)",
+      "ShellTool(node)",
+      "ShellTool(npm)",
+      "ShellTool(bash llm/.specify/scripts/bash/check-prerequisites.sh)",
+      "ShellTool(llm/.specify/scripts/bash/check-prerequisites.sh)",
+      "ShellTool(bash llm/.specify/scripts/bash/create-new-feature.sh)",
+      "ShellTool(llm/.specify/scripts/bash/create-new-feature.sh)",
+      "ShellTool(bash llm/.specify/scripts/bash/setup-plan.sh)",
+      "ShellTool(llm/.specify/scripts/bash/setup-plan.sh)",
+      "ShellTool(bash llm/.specify/scripts/bash/update-agent-context.sh)",
+      "ShellTool(llm/.specify/scripts/bash/update-agent-context.sh)",
       "ReadFileTool",
       "WriteFileTool",
       "GrepTool",
@@ -47,6 +61,7 @@
   "context": {
     "fileName": [
       "./GEMINI.md",
+      "./llm/GEMINI.md",
       "./llm/PROJECT.md"
     ],
     "fileFiltering": {

@@ -1,0 +1,4 @@
+# Gemini dockerized CLI
+./.gemini.store
+./.specify
+./.env
