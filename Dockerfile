@@ -1,6 +1,6 @@
 # docker build . --progress=plain -t hlpr/gdcli
 
-FROM node:24.11.1-slim
+FROM node:24.12.0-slim
 RUN apt-get update && apt-get install -y --no-install-recommends && \
     apt-get install -y procps jq python3 python3-pip git && \
     pip install uv --break-system-packages && \

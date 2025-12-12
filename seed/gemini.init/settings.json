@@ -2,8 +2,10 @@
   "tools": {
     "autoAccept": true,
     "allowed": [
-      "LSTool",
+      "ShellTool([)",
+      "ShellTool(test)",
       "ShellTool(ls)",
+      "ShellTool(cp)",
       "ShellTool(mv)",
       "ShellTool(sed)",
       "ShellTool(grep)",
@@ -13,6 +15,7 @@
       "ShellTool(mkdir)",
       "ShellTool(node)",
       "ShellTool(npm)",
+      "ShellTool(npx)",
       "ShellTool(bash llm/.specify/scripts/bash/check-prerequisites.sh)",
       "ShellTool(llm/.specify/scripts/bash/check-prerequisites.sh)",
       "ShellTool(bash llm/.specify/scripts/bash/create-new-feature.sh)",
@@ -21,6 +24,7 @@
       "ShellTool(llm/.specify/scripts/bash/setup-plan.sh)",
       "ShellTool(bash llm/.specify/scripts/bash/update-agent-context.sh)",
       "ShellTool(llm/.specify/scripts/bash/update-agent-context.sh)",
+      "LSTool",
       "ReadFileTool",
       "WriteFileTool",
       "GrepTool",
