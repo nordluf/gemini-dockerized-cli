@@ -1,0 +1,12 @@
+{
+  "enableTelemetry": false,
+  "showFeedbackSurvey": false,
+  "trustedWorkspaces": [
+    "/app"
+  ],
+  "permissions": {
+    "allow": [
+      "command(openspec)"
+    ]
+  }
+}

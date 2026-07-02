@@ -1,0 +1,40 @@
+#!/bin/bash
+set -euo pipefail
+
+GDPRESEED="" GDOPTU=""
+while getopts "uhw:" opt; do
+  case $opt in
+	  u) declare "GDOPT${opt^^}=-${opt}" ;;
+    p) GDPRESEED="$OPTARG" ;;
+	  h) echo "Usage: $0 [-u] [-p <path>]"
+	     echo "  -u Update the image and exit"
+       echo "  -p <path> Preseed the current directory with authentication from the previous setup"
+       exit 0
+       ;;
+	  \?) echo "Invalid option: -${OPTARG:-}"; exit 1; ;;
+    :) echo "Option -${OPTARG:-} requires an argument."; exit 2; ;;
+  esac
+done
+shift $((OPTIND -1))
+
+if [[ "$GDOPTU" ]]; then
+  docker pull hlpr/gdcli
+  GDCURRENT="$(realpath -s ${BASH_SOURCE[0]:-$0})"
+  rm -f "$GDCURRENT.new" "$GDCURRENT.old"
+  docker run --rm --entrypoint cat hlpr/gdcli /gdcli > "$GDCURRENT.new"
+  diff "$GDCURRENT.new" "$GDCURRENT" || true
+  mv -f "$GDCURRENT" "$GDCURRENT.old"
+  mv -f "$GDCURRENT.new" "$GDCURRENT"
+  chmod --reference="$GDCURRENT.old" "$GDCURRENT"
+  exit 0
+fi
+
+if [[ "$GDPRESEED" ]]; then
+  if [[ ! -d "$GDPRESEED" ]]; then
+    echo "Directory $GDPRESEED not exists"
+    exit 2
+  fi
+  GDPRESEED="-v $(realpath -s "$2"):/preseed/"
+fi
+
+exec docker run --rm -it -v ./:/app/ $GDPRESEED hlpr/gdcli $@
